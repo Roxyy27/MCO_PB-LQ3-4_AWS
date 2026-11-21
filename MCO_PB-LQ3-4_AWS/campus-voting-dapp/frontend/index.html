@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus_Voting_dApp - Campus Voting System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">
+      <span class="logo-icon">V</span>
+      <span>Campus_Voting_dApp</span>
+    </div>
+
+    <div class="header-actions">
+      <span id="networkBadge">Not Connected</span>
+      <span id="walletStatus">Wallet: Not Connected</span>
+      <button id="logoutButton" type="button" hidden>Logout</button>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <div id="notice"></div>
+
+    <!-- LOGIN AND SIGN UP -->
+    <section id="viewLogin">
+
+      <div class="login-card">
+
+        <h1>Campus_Voting_dApp</h1>
+        <p>Campus Voting System</p>
+        <p>Secure and transparent student elections.</p>
+
+        <div class="tabs">
+          <button id="tabLogin" type="button" class="active">
+            Login
+          </button>
+
+          <button id="tabSignup" type="button">
+            Sign Up
+          </button>
+        </div>
+
+        <!-- LOGIN -->
+        <div id="loginPane">
+
+          <h2>Welcome Back!</h2>
+          <p>Connect your MetaMask wallet to continue.</p>
+
+          <button id="loginVoterButton" type="button">
+            Login as Voter
+          </button>
+
+          <button id="loginAdminButton" type="button">
+            Login as Admin
+          </button>
+
+        </div>
+
+        <!-- SIGN UP -->
+        <div id="signupPane" hidden>
+
+          <h2>Voter Sign Up</h2>
+          <p>Create your voter registration using your wallet.</p>
+
+          <label for="regName">Full Name</label>
+          <input
+            type="text"
+            id="regName"
+            placeholder="Enter your full name"
+          >
+
+          <label for="regStudentId">Student ID</label>
+          <input
+            type="text"
+            id="regStudentId"
+            placeholder="Enter your student ID"
+          >
+
+          <button id="signUpButton" type="button">
+            Sign Up
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- VOTER DASHBOARD -->
+    <section id="viewVoter" hidden>
+
+      <div class="dashboard-header">
+        <h1>Voter Dashboard</h1>
+        <p>View candidates and cast your vote.</p>
+      </div>
+
+      <div id="phaseBannerVoter"></div>
+
+      <!-- VOTER STATUS -->
+      <div class="dashboard-card">
+        <h2>My Voting Status</h2>
+        <p id="voterStatus">Checking voter status...</p>
+        <p id="ballotHint"></p>
+      </div>
+
+      <!-- CANDIDATES -->
+      <div class="dashboard-card">
+        <h2>List of Candidates</h2>
+        <div id="ballotList"></div>
+      </div>
+
+      <!-- RESULTS -->
+      <div class="dashboard-card">
+        <h2>Election Results</h2>
+        <div id="voterResults"></div>
+      </div>
+
+    </section>
+
+    <!-- ADMIN DASHBOARD -->
+    <section id="viewAdmin" hidden>
+
+      <div class="dashboard-header">
+        <h1>Admin Dashboard</h1>
+        <p>Manage candidates, voters, and election activities.</p>
+      </div>
+
+      <div id="phaseBannerAdmin"></div>
+
+      <!-- ELECTION STATISTICS -->
+      <div class="stats-container">
+
+        <div class="stat-card">
+          <h3>Total Candidates</h3>
+          <p id="statCandidates">0</p>
+        </div>
+
+        <div class="stat-card">
+          <h3>Registered Voters</h3>
+          <p id="statRegistered">0</p>
+        </div>
+
+        <div class="stat-card">
+          <h3>Total Votes</h3>
+          <p id="statVotes">0</p>
+        </div>
+
+      </div>
+
+      <!-- ELECTION MANAGEMENT -->
+      <div class="dashboard-card">
+
+        <h2>Election Management</h2>
+        <p id="controlHint"></p>
+
+        <div class="button-group">
+
+          <button id="startElectionButton" type="button">
+            Start Election
+          </button>
+
+          <button id="endElectionButton" type="button">
+            Close Election
+          </button>
+
+        </div>
+
+      </div>
+
+      <!-- ADD CANDIDATE -->
+      <div class="dashboard-card" id="addPanel">
+
+        <h2>Add Candidate</h2>
+
+        <label for="candidateName">Candidate Name</label>
+        <input
+          type="text"
+          id="candidateName"
+          placeholder="Enter candidate name"
+        >
+
+        <label for="candidatePosition">Position</label>
+        <input
+          type="text"
+          id="candidatePosition"
+          placeholder="Enter candidate position"
+        >
+
+        <button id="addCandidateButton" type="button">
+          Add Candidate
+        </button>
+
+      </div>
+
+      <!-- VOTER MANAGEMENT -->
+      <div class="dashboard-card" id="voterPanel">
+
+        <h2>Voter Management</h2>
+
+        <label for="voterAddress">Voter Wallet Address</label>
+        <input
+          type="text"
+          id="voterAddress"
+          placeholder="Enter voter wallet address"
+        >
+
+        <button id="authorizeVoterButton" type="button">
+          Approve Voter
+        </button>
+
+        <h3>Registered Voters</h3>
+        <div id="registrantList"></div>
+
+      </div>
+
+      <!-- ADMIN RESULTS -->
+      <div class="dashboard-card">
+
+        <h2>Election Results</h2>
+        <div id="adminResults"></div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>Votify &copy; 2026 | Campus Voting System</p>
+  </footer>
+
+  <!-- LIBRARIES AND JAVASCRIPT -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>

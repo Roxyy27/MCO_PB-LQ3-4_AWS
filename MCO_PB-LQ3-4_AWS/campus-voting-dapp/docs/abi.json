@@ -1,0 +1,20 @@
+[
+  "function owner() view returns (address)",
+  "function electionOpen() view returns (bool)",
+  "function electionEnded() view returns (bool)",
+  "function authorizedVoters(address) view returns (bool)",
+  "function hasVoted(address) view returns (bool)",
+  "function addCandidate(string _name, string _position)",
+  "function authorizeVoter(address _voter)",
+  "function startElection()",
+  "function endElection()",
+  "function registerVoter(string _name, string _studentId)",
+  "function vote(uint256 _candidateId)",
+  "function getCandidate(uint256 _candidateId) view returns (tuple(uint256 id, string name, string position, uint256 voteCount, bool exists))",
+  "function getCandidateCount() view returns (uint256)",
+  "function getTotalVotes() view returns (uint256)",
+  "function getElectionStatus() view returns (bool)",
+  "function getRegistration(address _voter) view returns (string name, string studentId, bool requested)",
+  "function getRegistrantCount() view returns (uint256)",
+  "function getRegistrant(uint256 _index) view returns (address voter, string name, string studentId, bool authorized, bool voted)"
+]
